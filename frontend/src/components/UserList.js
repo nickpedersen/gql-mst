@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
+import gql from 'graphql-tag';
 import './UserList.css';
 
 const UserList = observer(
   class UserList extends Component {
     componentDidMount() {
-      const { store } = this.props;
-      store.fetch();
+      const { executeGraphQL } = this.props;
+      const query = gql`
+        {
+          users {
+            id,
+            name,
+            age
+          }
+        }
+      `;
+      executeGraphQL(query);
     }
     render() {
       const { users } = this.props;
@@ -39,5 +49,5 @@ const User = observer(
 
 export default inject(stores => ({
   users: stores.store.usersStore.users,
-  store: stores.store.usersStore,
+  executeGraphQL: stores.store.executeGraphQL,
 }))(UserList);
