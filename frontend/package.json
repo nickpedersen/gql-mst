@@ -10,7 +10,11 @@
     "mobx-react": "^4.2.2",
     "mobx-state-tree": "^0.9.5",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "apollo-client": "^1.9.0-1",
+    "graphql-tag": "^2.4.2",
+    "lodash": "^4.17.4",
+    "normalizr": "^3.2.3"
   },
   "scripts": {
     "start": "react-scripts start",

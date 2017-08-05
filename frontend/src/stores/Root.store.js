@@ -12,7 +12,7 @@ const task = new schema.Entity('tasks', {
 });
 const rootQuery = new schema.Entity('query', {
   users: [user],
-  tasks: [ task ],
+  tasks: [task],
 });
 
 const Store = types.model(
@@ -33,7 +33,7 @@ const Store = types.model(
           this.tasksStore.merge(values(normalizedData.entities.tasks));
         }
       });
-    }
+    },
   }
 );
 

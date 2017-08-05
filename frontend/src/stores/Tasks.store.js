@@ -9,7 +9,10 @@ const TasksStore = types.model(
   },
   {
     merge(tasks) {
-      this.tasks = uniqBy(this.tasks.concat(tasks).reverse(), t => t.id).reverse();
+      this.tasks = uniqBy(
+        this.tasks.concat(tasks).reverse(),
+        t => t.id
+      ).reverse();
     },
     hydrate(data) {
       this.tasks = data.tasks.map(task => ({

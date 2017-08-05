@@ -9,7 +9,10 @@ const UsersStore = types.model(
   },
   {
     merge(users) {
-      this.users = uniqBy(this.users.concat(users).reverse(), u => u.id).reverse();
+      this.users = uniqBy(
+        this.users.concat(users).reverse(),
+        u => u.id
+      ).reverse();
     },
     hydrate(data) {
       this.users = data.users;
