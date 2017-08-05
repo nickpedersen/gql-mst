@@ -5,8 +5,7 @@ import cors from 'cors';
 import { createServer } from 'http';
 import path from 'path';
 
-import transformForGraphql from './transformForGraphql';
-import User from '../shared/models/User';
+import schema from './schema';
 
 const port = process.env.PORT || 8080;
 const env = process.env.NODE_ENV || 'dev';
@@ -17,11 +16,7 @@ const app = express();
 app.use(cors());
 
 // Graphql endpoint
-app.use(
-  '/graphql',
-  bodyParser.json(),
-  graphqlExpress({ schema: transformForGraphql([User]) })
-);
+app.use('/graphql', bodyParser.json(), graphqlExpress({ schema }));
 const server = createServer(app);
 
 // Handy debugging tool, disabled on prod

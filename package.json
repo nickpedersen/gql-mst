@@ -8,5 +8,9 @@
     "start-frontend": "cd frontend && yarn start",
     "start": "yarn run start-server & yarn run start-frontend",
     "prettier": "prettier {frontend/src,server/src,server/shared}{**,/**}/*.js --single-quote --trailing-comma es5 --write"
+  },
+  "dependencies": {
+    "apollo-client": "^1.9.0-1",
+    "graphql-tag": "^2.4.2"
   }
 }
